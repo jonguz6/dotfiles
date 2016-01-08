@@ -161,7 +161,7 @@ workspace $workspace9 output LVDS1
 workspace $workspace10 output LVDS1
 
 # set a wallpaper
-exec_always --no-startup-id feh --bg-fill /home/j/Pictures/wallpaper.jpg
+exec_always --no-startup-id feh --bg-fill --randomize /home/j/Pictures/Wallpapers/*
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+

@@ -23,8 +23,9 @@ echo "done"
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $files; do
     echo "Moving any existing dotfiles from ~ to $olddir"
-    mv $dir/$file ~/dotfiles_old/
-    echo "Creating symlink to $file in home directory."
-    cp -r ~/.$file $dir/.$file
+    rsync -a $dir/.$file ~/dotfiles_old/
+    rm -rf $dir/.$file
+    echo "Copying $file into $dir"
+    rsync -a ~/.$file $dir/
 done
 
