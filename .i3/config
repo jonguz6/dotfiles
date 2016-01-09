@@ -161,7 +161,9 @@ workspace $workspace9 output LVDS1
 workspace $workspace10 output LVDS1
 
 # set a wallpaper
-exec_always --no-startup-id feh --bg-fill --randomize /home/j/Pictures/Wallpapers/*
+exec --no-startup-id feh --bg-fill --randomize /home/j/Pictures/Wallpapers/*
+bindsym $mod+Shift+f exec --no-startup-id feh --bg-fill --randomize /home/j/Pictures/Wallpapers/*
+
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
@@ -267,11 +269,12 @@ mode "$mode_gaps_outer" {
 
 smart_gaps on
 
-exec_always redshift -l 52:21 -m randr
-assign [class="Spotify"] $workspace10
+exec redshift -l 52:21 -m randr
+assign [class="^Spotify$"] $workspace10
 assign [class="google-chrome"] $workspace1
 assign [class="Gnome-terminal"] $workspace2
 assign [class="Kodi"] $workspace5
+assign [class="Vlc"] $workspace5
 
 # for_window [class="google-chrome"] border 1pixel
 for_window [class="^.*"] border pixel 1
