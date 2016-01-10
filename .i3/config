@@ -161,9 +161,13 @@ workspace $workspace9 output LVDS1
 workspace $workspace10 output LVDS1
 
 # set a wallpaper
-exec --no-startup-id feh --bg-fill --randomize /home/j/Pictures/Wallpapers/*
-bindsym $mod+Shift+f exec --no-startup-id feh --bg-fill --randomize /home/j/Pictures/Wallpapers/*
+#exec --no-startup-id feh --bg-fill --randomize /home/j/Pictures/Wallpapers/*
+#bindsym $mod+Shift+f exec --no-startup-id feh --bg-fill --randomize /home/j/Pictures/Wallpapers/*
 
+# random wallpaper generator
+# set files=(/home/j/Pictures/Wallpapers/*)
+exec --no-startup-id feh --bg-fill "$(find ~/Pictures/Wallpapers/*|shuf -n1)"
+bindsym $mod+Shift+f exec --no-startup-id feh --bg-fill "$(find ~/Pictures/Wallpapers/*|shuf -n1)"
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
