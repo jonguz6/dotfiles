@@ -110,8 +110,8 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # configure outputs
-exec_always --no-startup-id xrandr --output LVDS1 --auto
-exec_always --no-startup-id xrandr --output VGA1 --auto --left-of LVDS1
+#exec_always --no-startup-id xrandr --output LVDS1 --auto
+#exec_always --no-startup-id xrandr --output VGA1 --auto --left-of LVDS1
 
 #set workspace variables
 set $workspace1 "1 &#xf268;"
@@ -279,6 +279,8 @@ assign [class="google-chrome"] $workspace1
 assign [class="Gnome-terminal"] $workspace2
 assign [class="Kodi"] $workspace5
 assign [class="Vlc"] $workspace5
+assign [class="Krita"] $workspace4
+assign [class="Steam"] $workspace9
 
 # for_window [class="google-chrome"] border 1pixel
 for_window [class="^.*"] border pixel 1

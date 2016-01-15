@@ -5,7 +5,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="i3 i3config fonts icons compton.conf"    # list of files/folders to symlink in homedir
+files="i3 i3config fonts lightdm icons compton.conf"    # list of files/folders to symlink in homedir
 
 ##########
 
