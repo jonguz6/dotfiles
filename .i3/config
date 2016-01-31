@@ -17,7 +17,7 @@ set $mod Mod1
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:System San Francisco Display 10
+font pango:System San Francisco Display 9
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -29,11 +29,10 @@ font pango:System San Francisco Display 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec gnome-terminal
-
 # kill focused window
 bindsym $mod+Shift+q kill
+
+#bindsym $mod+Shift+Return exec terminator & move corrent_w
 
 set $bg-color            #2f343f
 set $inactive-bg-color   #2f343f
@@ -41,14 +40,16 @@ set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
+# start a terminal
+bindsym $mod+Return exec terminator
 # launch i3lock
 bindsym $mod+Shift+x exec lock
 # launch Chrome
-bindsym $mod+c exec google-chrome-stable
+bindsym $mod+c exec firefox
 # launch pavu
 bindsym $mod+p exec pavucontrol
 # check ping
-bindsym $mod+o exec gnome-terminal --command "ping -c5 8.8.8.8"
+bindsym $mod+o exec terminator -e "ping -c5 8.8.8.8"
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -114,7 +115,7 @@ bindsym $mod+a focus parent
 #exec_always --no-startup-id xrandr --output VGA1 --auto --left-of LVDS1
 
 #set workspace variables
-set $workspace1 "1 &#xf268;"
+set $workspace1 "1 "
 set $workspace2 "2 &#xf120;"
 set $workspace3 "3"
 set $workspace4 "4"
@@ -178,10 +179,10 @@ bindsym XF86AudioMute exec amixer sset Master toggle
 #bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # Media player controls
-#bindsym XF86AudioPlay exec playerctl play
-#bindsym XF86AudioPause exec playerctl pause
-#bindsym XF86AudioNext exec playerctl next
-#bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
+bindysm XF86AudioStop exec playerctl stop
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -218,21 +219,21 @@ bindsym $mod+r mode "resize"
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+client.focused          $bg-color           $bg-color          $text-color          $text-color
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $text-color
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $text-color
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $text-color
 
-hide_edge_borders both
-
+mouse_warping none
+hide_edge_borders both 
 # no borders on windows
 #new_window 1pixel
 
 # execute compton
 exec compton -bf 
 
-gaps outer 20
-gaps inner 20
+gaps outer 10
+gaps inner 10
 
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -271,12 +272,12 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-smart_gaps on
+# smart_gaps on
 
 exec redshift -l 52:21 -m randr
 assign [class="^Spotify$"] $workspace10
-assign [class="google-chrome"] $workspace1
-assign [class="Gnome-terminal"] $workspace2
+assign [class="Firefox"] $workspace1
+#assign [class="Terminator"] $workspace2
 assign [class="Kodi"] $workspace5
 assign [class="Vlc"] $workspace5
 assign [class="Krita"] $workspace4
