@@ -34,11 +34,17 @@ bindsym $mod+Shift+q kill
 
 #bindsym $mod+Shift+Return exec terminator & move corrent_w
 
-set $bg-color            #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
+set $bg-color            #0c6555
+set $inactive-bg-color   #01876f
+set $text-color          #eced71
+set $inactive-text-color #e2e36c
 set $urgent-bg-color     #E53935
+
+#set $bg-color            #2f343f
+#set $inactive-bg-color   #2f343f
+#set $text-color          #f3f4f5
+#set $inactive-text-color #676E7D
+#set $urgent-bg-color     #E53935
 
 # start a terminal
 bindsym $mod+Return exec terminator
@@ -167,7 +173,7 @@ workspace $workspace10 output LVDS1
 
 # random wallpaper generator
 # set files=(/home/j/Pictures/Wallpapers/*)
-exec --no-startup-id feh --bg-fill "$(find ~/Pictures/Wallpapers/*|shuf -n1)"
+# exec --no-startup-id feh --bg-fill "$(find ~/Pictures/Wallpapers/*|shuf -n1)"
 bindsym $mod+Shift+f exec --no-startup-id feh --bg-fill "$(find ~/Pictures/Wallpapers/*|shuf -n1)"
 
 # Pulse Audio controls
@@ -224,7 +230,7 @@ client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-col
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $text-color
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $text-color
 
-mouse_warping none
+#mouse_warping none
 hide_edge_borders both 
 # no borders on windows
 #new_window 1pixel
@@ -281,7 +287,10 @@ assign [class="Firefox"] $workspace1
 assign [class="Kodi"] $workspace5
 assign [class="Vlc"] $workspace5
 assign [class="Krita"] $workspace4
-assign [class="Steam"] $workspace9
+assign [class="Steam"] $workspace8
+assign [class="conky"] $workspace9
+for_window [class="conky"] border pixel 0
+for_window [class="conky"] floating enable
 
 # for_window [class="google-chrome"] border 1pixel
 for_window [class="^.*"] border pixel 1

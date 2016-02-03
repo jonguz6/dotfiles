@@ -78,7 +78,7 @@ cpu_usage {
 
 cpu_temperature 0 {
         format = " %degrees°C"
-        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp2_input"
+        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon0/temp2_input"
 }
 
 # control the volume with your mouse (need >i3-4.8)
